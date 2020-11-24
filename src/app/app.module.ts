@@ -24,7 +24,7 @@ import { AgmCoreModule } from '@agm/core';
     FormsModule,
     NgxPaginationModule,
     AgmCoreModule.forRoot({
-      apiKey: ''//AIzaSyDwoVw8HbRtGziC0JUBNGL6dK7TLS_o5EQ
+      apiKey: 'AIzaSyDwoVw8HbRtGziC0JUBNGL6dK7TLS_o5EQ'
     })
   ],
   providers: [],
