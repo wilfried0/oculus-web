@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "oculus-web"
+    }
+  },
+  "defaultProject": "oculus-web",
+  "cli": {
+    "analytics": "842bfa99-3dd5-4f2a-ad32-f6e1569f2fc6"
+  }
 }

@@ -3,14 +3,29 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MapComponent } from './map/map.component';
+import { HomeComponent } from './home/home.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MapComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+    NgxPaginationModule,
+    AgmCoreModule.forRoot({
+      apiKey: ''//AIzaSyDwoVw8HbRtGziC0JUBNGL6dK7TLS_o5EQ
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
