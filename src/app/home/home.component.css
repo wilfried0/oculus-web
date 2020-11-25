@@ -1,0 +1,17 @@
+.product-img {
+  padding: 15px 0px;
+}
+
+.product-price {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 16px;
+  color: #3d405c;
+  font-family: '';
+  line-height: 1;
+}
+
+.dashboard-main-wrapper{
+  background-color: #527DAA;
+}

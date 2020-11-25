@@ -1,0 +1,109 @@
+<div class="dashboard-main-wrapper">
+
+  <!-- navbar -->
+  <div class="dashboard-header">
+      <nav class="navbar navbar-expand-lg bg-white fixed-top" style="padding-left: 20px;" >
+        <img src="./../../assets/logo.png" alt="" srcset="" style="width: 50px; height: 5 0px;" >
+          <a class="navbar-brand" href="index.html" style="color: #527DAA;">Oculus</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse " id="navbarSupportedContent">
+          </div>
+      </nav>
+  </div>
+
+  <!-- wrapper  -->
+  <div class="dashboard-wrapper">
+      <div class="dashboard-ecommerce">
+          <div class="container-fluid dashboard-content ">
+
+              <!-- pageheader  -->
+              <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                      <div class="page-header">
+                          <h2 class="pageheader-title" style="color: #FFFFFF;">Détails incident n°{{ oculus.id }}</h2>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-xl-10 col-lg-8 col-md-8 col-sm-12 col-12">
+                      <div class="row" >
+                        <div class="col-xl-12 col-lg-6 col-md-12 col-sm-12 col-12">
+                          <app-map></app-map>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12" style="padding: 10px ; height: 400px;" >
+                          <img src="{{ oculus.image1 }}" alt="" style="height: 100%; width: 100%;" />
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12" style="padding: 10px ; height: 400px;" >
+                          <img src="{{ oculus.image2 }}" alt="" style="height: 100%; width: 100%;" />
+                        </div>
+                        <div class="row" style="border: solid 1px ; height: 100px" style="margin-top: 20px; padding: 0% 20%; " >
+                          <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 col-12">
+                            <h3 class="">Incident</h3>
+                            <div class="valued">{{ oculus.incident }}</div>
+                          </div>
+                          <div class="col-xl-3">
+                            <h3 class="">Ville</h3>
+                            <div class="valued">{{ oculus.ville }}</div>
+                          </div>
+                          <div class="col-xl-3">
+                            <h3 class="">Description</h3>
+                            <div class="valued">{{ oculus.description }}</div>
+                          </div>
+                          <div class="col-xl-3">
+                            <h3 class="">Téléphone</h3>
+                            <div class="valued">{{ oculus.phone }}</div>
+                          </div>
+                          <div class="col-xl-3" style="margin-top: 30px;" >
+                            <h3 class="">Latitude</h3>
+                            <div class="valued">{{ oculus.latitude }}</div>
+                          </div>
+                          <div class="col-xl-3" style="margin-top: 30px;" >
+                            <h3 class="">Longitude</h3>
+                            <div class="valued">{{ oculus.longitude }}</div>
+                          </div>
+                          <div class="col-xl-3" *ngFor="let imei of oculus.multiImei; let i = index" style="margin-top: 30px;">
+                            <h3 class="">{{ 'imei' + (i + 1) }}</h3>
+                            <div class="valued">{{ imei.imei }}</div>
+                          </div>
+                        </div>
+                          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                              <!-- <nav aria-label="Page navigation example">
+                                  <ul class="pagination">
+                                      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                      <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                      <li class="page-item active"><a class="page-link " href="#">2</a></li>
+                                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                  </ul>
+                              </nav> -->
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- footer -->
+          <!-- <div class="footer">
+              <div class="container-fluid">
+                  <div class="row">
+                      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                          Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
+                      </div>
+                      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                          <div class="text-md-right footer-links d-none d-sm-block">
+                              <a href="javascript: void(0);">About</a>
+                              <a href="javascript: void(0);">Support</a>
+                              <a href="javascript: void(0);">Contact Us</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div> -->
+
+      </div>
+
+  </div>
+</div>
