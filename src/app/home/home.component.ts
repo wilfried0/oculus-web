@@ -83,42 +83,32 @@ export class HomeComponent implements OnInit {
     console.log(this.oculusList)
   }
 
-  onTownChange(value: any): void{
-     this.ville = value.toLowerCase();
-     this.incident = this.incident.toLowerCase();
-     let result: Oculus[] = [];
-     this.search = null;
-     //this.oculusList = this.oculusListTemp;
-     result = this.oculusListTemp.filter(oculus => {
-      if (this.incident !="Incident" && oculus.incident.toLowerCase().includes(this.incident) && oculus.ville.toLowerCase().includes(this.ville)) {
-        console.log("on est dans ville 1!");
-        return oculus;
-      } else if (oculus.ville.toLowerCase().includes(this.ville)) {
-        console.log("on est dans ville 2!");
+  LoadOculusByTownAndIncident(ville: string, incident: string): void {
+    this.oculusList = this.oculusListTemp.filter(oculus => {
+      if(oculus.incident.toLowerCase().includes(incident) && oculus.ville.toLowerCase().includes(ville)) {
         return oculus;
       }
     });
-    this.oculusList = result;
-    console.log(this.oculusList)
+  }
+
+  onTownChange(value: any): void{
+     this.ville = value;
+     let incident = this.incident.toLowerCase();
+     this.search = null;
+     if(incident === "incident") {
+      incident = "";
+     }
+     this.LoadOculusByTownAndIncident(this.ville.toLowerCase(), incident);
   }
 
   onIncidenceChange(value: any){
-    this.incident = value.toLowerCase();
-    this.ville = this.ville.toLowerCase();
-    let result: Oculus[] = [];
-    this.search = null;
-    //this.oculusList = this.oculusListTemp;
-    result = this.oculusListTemp.filter(oculus => {
-      if (this.ville !="Ville" && oculus.ville.toLowerCase().includes(this.ville) && oculus.ville.toLowerCase().includes(this.incident)) {
-        console.log("on est dans ville 1!");
-        return oculus;
-      } else if (oculus.incident.toLowerCase().includes(this.incident)) {
-        console.log("on est dans ville 2!");
-        return oculus;
-      }
-    });
-    this.oculusList = result;
-    console.log(this.oculusList)
+     this.incident = value;
+     let ville = this.ville.toLowerCase();
+     this.search = null;
+     if(ville === "ville") {
+      ville = "";
+     }
+     this.LoadOculusByTownAndIncident(ville, this.incident.toLowerCase());
   }
 
 }
