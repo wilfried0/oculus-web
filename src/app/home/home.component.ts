@@ -23,6 +23,11 @@ export class HomeComponent implements OnInit {
   public errorMessage: any;
   public page:any;
   oculusList: Oculus[] = [];
+  oculusListTemp: Oculus[] = [];
+  search: string;
+  ville: string = "Ville";
+  incident: string = "Incident";
+  selectedLevel;
 
   constructor(
     private searchService: TestService,
@@ -37,9 +42,14 @@ export class HomeComponent implements OnInit {
     this.loadOculus();
   }
 
+  selected(){
+    console.log(this.selectedLevel);
+  }
+
   loadOculus(): void {
     this.searchService.getOculus().subscribe(data => {
       this.oculusList = data;
+      this.oculusListTemp = data;
     });
   }
 
@@ -49,22 +59,65 @@ export class HomeComponent implements OnInit {
   }
 
   onOculusChanged(event): void {
-    const search = event.target.value.toLowerCase();
+    this.search = event.target.value.toLowerCase();
     let result: Oculus[] = [];
+    this.oculusList = this.oculusListTemp;
+    this.ville = "Ville";
+    this.incident = "Incident";
     result = this.oculusList.filter(oculus => {
-      if (oculus.incident ? oculus.incident.toLowerCase().includes(search) : false) {
+      if (oculus.incident ? oculus.incident.toLowerCase().includes(this.search) : false) {
         return oculus;
-      } else if (oculus.description ? oculus.description.toLowerCase().includes(search) : false ) {
+      } else if (oculus.description ? oculus.description.toLowerCase().includes(this.search) : false ) {
         return oculus;
-      } else if (oculus.ville ? oculus.ville.toLowerCase().includes(search) : false ) {
+      } else if (oculus.ville ? oculus.ville.toLowerCase().includes(this.search) : false ) {
+        return oculus;
+      } else if (oculus.created_at ? oculus.created_at.toLowerCase().includes(this.search) : false ) {
         return oculus;
       }
     });
-    if(search === '') {
+    if(this.search === '') {
       this.loadOculus();
     } else {
       this.oculusList = result;
     }
+    console.log(this.oculusList)
+  }
+
+  onTownChange(value: any): void{
+     this.ville = value.toLowerCase();
+     this.incident = this.incident.toLowerCase();
+     let result: Oculus[] = [];
+     this.search = null;
+     //this.oculusList = this.oculusListTemp;
+     result = this.oculusListTemp.filter(oculus => {
+      if (this.incident !="Incident" && oculus.incident.toLowerCase().includes(this.incident) && oculus.ville.toLowerCase().includes(this.ville)) {
+        console.log("on est dans ville 1!");
+        return oculus;
+      } else if (oculus.ville.toLowerCase().includes(this.ville)) {
+        console.log("on est dans ville 2!");
+        return oculus;
+      }
+    });
+    this.oculusList = result;
+    console.log(this.oculusList)
+  }
+
+  onIncidenceChange(value: any){
+    this.incident = value.toLowerCase();
+    this.ville = this.ville.toLowerCase();
+    let result: Oculus[] = [];
+    this.search = null;
+    //this.oculusList = this.oculusListTemp;
+    result = this.oculusListTemp.filter(oculus => {
+      if (this.ville !="Ville" && oculus.ville.toLowerCase().includes(this.ville) && oculus.ville.toLowerCase().includes(this.incident)) {
+        console.log("on est dans ville 1!");
+        return oculus;
+      } else if (oculus.incident.toLowerCase().includes(this.incident)) {
+        console.log("on est dans ville 2!");
+        return oculus;
+      }
+    });
+    this.oculusList = result;
     console.log(this.oculusList)
   }
 

@@ -8,7 +8,36 @@
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
           </button>
-          <input class="" type="text" placeholder="Recherche..." style="margin-top: 0%; margin-right: 20px;" (keyup)="onOculusChanged($event)" >
+
+          <div class="btn-group">
+            <button type="button" class="btn btn-outline-info" style="width: 100px; color: #527DAA;">{{ville}}</button>
+            <button type="button" class="btn btn-outline-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #527DAA;">
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#" *ngFor="let item of oculusListTemp" (click)="onTownChange(item.ville)">{{ item.ville }}</a>
+            </div>
+          </div>
+
+          <a class="fa fa-globe" *ngIf="oculusList.length>=1" style="padding-left: 50px;">
+            <span class="fa fa-comment"></span>
+            <span class="num">{{ oculusList.length }}</span>
+          </a>
+
+          <div class="btn-group" style="padding-left: 50px;">
+            <button type="button" class="btn btn-outline-info" style="width: 100px; color: #527DAA;">{{ incident }}</button>
+            <button type="button" class="btn btn-outline-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #527DAA;">
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#" *ngFor="let item of oculusListTemp" (click)="onIncidenceChange(item.incident)">{{ item.incident }}</a>
+            </div>
+          </div>
+
+          <form class="">
+            <input class="form-control mr-sm-2" type="search" placeholder="Recherchez..." aria-label="Search" style="margin-top: 0%; margin-left: 50px; height: 38px;" (keyup)="onOculusChanged($event)">
+          </form>
+          <!--input class="" type="text" placeholder="Recherchez avec un mot clef..." style="margin-top: 0%; margin-right: 20px;" (keyup)="onOculusChanged($event)" -->
       </nav>
   </div>
 
@@ -37,6 +66,10 @@
                                       </div>
                                   </div>
                                   <div class="product-content">
+                                      <div class="product-content-head">
+                                        <h3 class="product-title">Date et heure</h3>
+                                        <div class="product-price">{{ oculus.created_at }}</div>
+                                      </div>
                                       <div class="product-content-head">
                                           <h3 class="product-title">Incident</h3>
                                           <div class="product-price">{{ oculus.incident }}</div>
@@ -73,6 +106,7 @@
                           </div>
                       </div>
                   </div>
+
                   <!-- <div class="col-xl-3 col-lg-4 col-md-4 col-sm-12 col-12">
                       <div class="product-sidebar">
                           <div class="product-sidebar-widget">
@@ -182,22 +216,11 @@
           </div>
 
           <!-- footer -->
-          <!-- <div class="footer">
-              <div class="container-fluid">
-                  <div class="row">
-                      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                          Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
-                      </div>
-                      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                          <div class="text-md-right footer-links d-none d-sm-block">
-                              <a href="javascript: void(0);">About</a>
-                              <a href="javascript: void(0);">Support</a>
-                              <a href="javascript: void(0);">Contact Us</a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div> -->
+          <div class="footer">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="color: #FFFFFF; font-style: italic;">
+              Copyright © 2020. Tous les droits sont reservés.
+             </div>
+          </div>
 
       </div>
 

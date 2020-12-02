@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { OculusDetailsComponent } from './oculus-details/oculus-details.component';
-import { AgmCoreModule } from '@agm/core';
+//import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -24,10 +24,10 @@ import { AgmCoreModule } from '@agm/core';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    NgxPaginationModule,
-     AgmCoreModule.forRoot({
+    NgxPaginationModule
+     /*AgmCoreModule.forRoot({
        apiKey: 'AIzaSyDwoVw8HbRtGziC0JUBNGL6dK7TLS_o5EQ'//AIzaSyDwoVw8HbRtGziC0JUBNGL6dK7TLS_o5EQ
-     })
+     })*/
   ],
   providers: [],
   bootstrap: [AppComponent]
