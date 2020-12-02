@@ -35,7 +35,7 @@
           </div>
 
           <form class="">
-            <input class="form-control mr-sm-2" type="search" placeholder="Recherchez..." aria-label="Search" style="margin-top: 0%; margin-left: 50px; height: 38px;" (keyup)="onOculusChanged($event)">
+            <input class="form-control mr-sm-2" type="search" [value]="search" placeholder="Recherchez..." aria-label="Search" style="margin-top: 0%; margin-left: 50px; height: 38px;" (keyup)="onOculusChanged($event)">
           </form>
           <!--input class="" type="text" placeholder="Recherchez avec un mot clef..." style="margin-top: 0%; margin-right: 20px;" (keyup)="onOculusChanged($event)" -->
       </nav>

@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
   public page:any;
   oculusList: Oculus[] = [];
   oculusListTemp: Oculus[] = [];
-  search: string;
+  search: string = '';
   ville: string = "Ville";
   incident: string = "Incident";
   selectedLevel;
@@ -89,6 +89,7 @@ export class HomeComponent implements OnInit {
         return oculus;
       }
     });
+    this.search = '';
   }
 
   onTownChange(value: any): void{
